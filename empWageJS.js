@@ -1,4 +1,3 @@
-
 const MAX_HRS_IN_MONTH = 160;
 const NUM_OF_WORKING_DAYS = 20;
 const IS_PART_TIME = 1;
@@ -52,3 +51,21 @@ function totalWages(totalWage, dailyWage) {
     return totalWage + dailyWage;
 }
 console.log("UC-7A Emp Wage With Reduce: "+empDailyWageArr.reduce(totalWages, 0));
+
+//UC-7B Day Along With Daily Wage Using Array Map Helper Function
+let dailyCntr = 0;
+function mapDayWithWage(dailyWage) {
+    dailyCntr++;
+    return dailyCntr + "=" + dailyWage;
+}
+let mapDayWithWageArr = empDailyWageArr.map(mapDayWithWage);
+console.log("UC-7B Daily Wage Map")
+console.log(mapDayWithWageArr);
+
+//UC-7C Show Days When Full Time Wage of 160 were Earned
+function fullTimeWage(dailyWage) {
+    return dailyWage.includes("160");
+}
+let fullDayWageArr = mapDayWithWageArr.filter(fullTimeWage);
+console.log("UC-7C Daily Wage Filter When Full Time Wage Earned");
+console.log(fullDayWageArr);
