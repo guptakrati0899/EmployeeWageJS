@@ -56,7 +56,7 @@ console.log("UC-7A Emp Wage With Reduce: "+empDailyWageArr.reduce(totalWages, 0)
 let dailyCntr = 0;
 function mapDayWithWage(dailyWage) {
     dailyCntr++;
-    return dailyCntr + "=" + dailyWage;
+    return dailyCntr + " = " + dailyWage;
 }
 let mapDayWithWageArr = empDailyWageArr.map(mapDayWithWage);
 console.log("UC-7B Daily Wage Map")
@@ -69,3 +69,9 @@ function fullTimeWage(dailyWage) {
 let fullDayWageArr = mapDayWithWageArr.filter(fullTimeWage);
 console.log("UC-7C Daily Wage Filter When Full Time Wage Earned");
 console.log(fullDayWageArr);
+
+//UC-7D Find the First Occurrence When Full Time Wage was Earned using Find Function
+function findFullTimeWage(dailyWage) {
+    return dailyWage.includes("160")
+}
+console.log("UC-7D First Time FullTime Wage was Earned on Day: "+mapDayWithWageArr.find(findFullTimeWage));
